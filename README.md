@@ -3,6 +3,7 @@
 
 ## 1. Setting Up Machine Menggunakan Vagrant
 Dibawah ini merupakan pembagian Arsitektur dan IP:
+
 No | HostName |    IP    | Keterangan  |
 ---|----------|----------|-------------|
 1  |clusterdb1|192.168.33.11|ndb-Manager|
@@ -10,7 +11,7 @@ No | HostName |    IP    | Keterangan  |
 3 |clusterdb3|192.168.33.13|Node 2 dan API 2|
 4 |clusterdb4|192.168.33.14|Load Balance(ProxySQL)|
 
-Pertama siapkan konfigurasi vagranfile untuk membuat node. kali ini kita akan membuat 4 node yaitu 1 ndb-manager, 1 load balance(Proxy), 2 node dan 2 service API 
+Pertama siapkan konfigurasi vagranfile seperti yang dibawah untuk membuat node. kali ini kita akan membuat 4 node yaitu 1 ndb-manager, 1 load balance(Proxy), 2 node dan 2 service API 
 
 ```
 Vagrant.configure("2") do |config|
