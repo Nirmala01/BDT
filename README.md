@@ -143,15 +143,18 @@ Sebelum membuat daemon, buat sebuah direktori pada node kemudian jalankan
 $ sudo mkdir -p /usr/local/mysql/data
 $ sudo ndbd
 ```
-Maka akan keluar output
-[gambar]
+Maka akan keluar output seperti ini:
+
+![screenshot](https://github.com/Nirmala01/BDT-MySQLCluster/blob/master/screenshot/ndbd%20node1.PNG)
+
 Tambahkan aturan untuk mengizinkan koneksi dari Cluster Manager dan Data Nodes lainnya
 ```
 $ sudo ufw allow from 192.168.33.11
 $ sudo ufw allow from 192.168.33.13
 ```
 Output
-[gambar]
+Rule Added
+
 Sebelum menjalankan service manager, kill dahulu ```ndbd``` yang sedang berjalan 
 ```
 $ sudo pkill -f ndbd
@@ -179,18 +182,17 @@ WantedBy=multi-user.target
 Reload konfigurasi sistem manager menggunakan ```daemon-reload```
 ```
 $ sudo systemctl daemon-reload
-```
-Hubungkan dan buat data node daemon memulai reboot, mulai service
-```
+#Hubungkan dan buat data node daemon memulai reboot, mulai service
 $ sudo systemctl enable ndbd
 $ sudo systemctl start ndbd
 ```
-Cek running pada NDB Cluster Management
+Cek running pada ndbd
 ```
 $ sudo systemctl status ndbd
 ```
 Maka akan keluar output
-[gambar]
+
+![screenshot](https://github.com/Nirmala01/BDT-MySQLCluster/blob/master/screenshot/ndb%20active%20running.PNG)
 
 ## 4. Verifikasi Installasi Service Node
 Login pada service node dan donwload packagenya
@@ -269,6 +271,9 @@ Kemudian cek
 ```
 mysql > SHOW ENGINE NDB STATUS \G
 ```
+maka akan muncul seperti gambar dibawah:
+![screenshot](https://github.com/Nirmala01/BDT-MySQLCluster/blob/master/screenshot/ndb%20status.PNG)
+
 ## 5. Instalasi Load Balance(ProxySQL)
 Download instalasi ProxySQL, Jalankan command pada server Proxy untuk mendownload
 ```
@@ -292,6 +297,8 @@ Cek apakah sudah berhasil berjalan atau belum
 ```
 $ sudo systemctl status proxysql
 ```
+![screenshot](https://github.com/Nirmala01/BDT-MySQLCluster/blob/master/screenshot/proxy%20active.PNG)
+
 ** Setting password Admin ProxySQL, secara default awal password nya adalah admin **
 ```
 $ mysql -u admin -p -h 127.0.0.1 -P 6032 --prompt='ProxySQLAdmin> '
@@ -342,12 +349,13 @@ Cek apakah Service API sudah terhubung dengan ProxySQL
 ProxySQLAdmin > SELECT hostgroup_id, hostname, status FROM runtime_mysql_servers;
 ```
 
+
 ## ** Buat User MySQL pada Service API untuk dapat diakses melalui ProxySQL **
 Login pada server service API
 ```
 service1 > mysql -u root -p
-mysql > CREATE USER 'mysqlcluster'@'%' IDENTIFIED BY 'vagrant';
-mysql > GRANT ALL PRIVILEGES on clustertest.* to 'mysqlcluster'@'%';
+mysql > CREATE USER 'newuser'@'%' IDENTIFIED BY 'password';
+mysql > GRANT ALL PRIVILEGES on user.* to 'newuser'@'%';
 mysql > FLUSH PRIVILEGES;
 mysql > exit;
 ```
