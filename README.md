@@ -55,40 +55,18 @@ Edit file konfigurasi
 ```
 $ sudo nano /var/lib/mysql-cluster/config.ini
 ```
-Copy file pada direktori
-```
-[ndbd default]
-# Options affecting ndbd processes on all data nodes:
-NoOfReplicas=2  
+Isi file config.ini seperti pada gambar ini:
 
-[ndb_mgmd]
-# Management process options:
-hostname=192.168.33.11 
-datadir=/var/lib/mysql-cluster 
+![screenshot](https://github.com/Nirmala01/BDT-MySQLCluster/blob/master/screenshot/configini%20punya%20ndb%20manager.PNG)
 
-[ndbd]
-hostname=192.168.33.12 
-NodeId=2            
-datadir=/usr/local/mysql/data   
-
-[ndbd]
-hostname=192.168.33.13 
-NodeId=3            
-datadir=/usr/local/mysql/data  
-
-[mysqld]
-# SQL node options:
-hostname=192.168.33.12
-
-[mysqld]
-hostname=192.168.33.13
-```
 Jalankan ndb_mgmd
 ```
 $ sudo ndb_mgmd -f /var/lib/mysql-cluster/config.ini
 ```
-Maka akan ada output:
-[gambar]
+Maka akan keluar output seperti ini:
+
+![screenshot](https://github.com/Nirmala01/BDT-MySQLCluster/blob/master/screenshot/ndb%20active%20running.PNG)
+
 Sebelum menjalankan service manager, kill dahulu service yang sedang berjalan 
 ```
 $ sudo pkill -f ndb_mgmd
