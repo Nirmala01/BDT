@@ -55,7 +55,7 @@ Edit file konfigurasi
 ```
 $ sudo nano /var/lib/mysql-cluster/config.ini
 ```
-Isi file config.ini seperti pada gambar ini:
+Isi file ```config.ini``` seperti pada gambar ini:
 
 ![screenshot](https://github.com/Nirmala01/BDT-MySQLCluster/blob/master/screenshot/configini%20punya%20ndb%20manager.PNG)
 
@@ -65,7 +65,7 @@ $ sudo ndb_mgmd -f /var/lib/mysql-cluster/config.ini
 ```
 Maka akan keluar output seperti ini:
 
-![screenshot](https://github.com/Nirmala01/BDT-MySQLCluster/blob/master/screenshot/ndb%20active%20running.PNG)
+![screenshot](https://github.com/Nirmala01/BDT-MySQLCluster/blob/master/screenshot/node%20data%201.PNG)
 
 Sebelum menjalankan service manager, kill dahulu service yang sedang berjalan 
 ```
@@ -75,7 +75,7 @@ Edit file konfigurasi management
 ```
 $ sudo nano /etc/systemd/system/ndb_mgmd.service
 ```
-Copy file pada direktori
+Copy ke dalam file ```ndb_mgmd.service```
 ```
 [Unit]
 Description=MySQL NDB Cluster Management Server
@@ -95,24 +95,23 @@ Save dan exit, lalu jalankan daemon mode dan enable kan service yang sudah dibua
 ```
 $ sudo systemctl daemon-reload
 $ sudo systemctl enable ndb_mgmd
-```
-Jalankan service
-```
+
+#Jalankan service
 $ sudo systemctl start ndb_mgmd
-```
-Cek status 
-```
+
+#Cek status 
 $ sudo systemctl status ndb_mgmd
 ```
 Maka akan ada output:
-[gambar]
-Tambahkan aturan untuk mengizinkan koneksi masuk lokal dari kedua node data
+![screenshot](https://github.com/Nirmala01/BDT-MySQLCluster/blob/master/screenshot/ndb%20active%20running.PNG)
+
 ```
+#Tambahkan koneksi untuk kedua node data
 $ sudo ufw allow from 192.168.33.12
 $ sudo ufw allow from 192.168.33.13
 ```
 Maka akan ada output:
-[gambar]
+Rule Added
 
 ## 3. Instalasi dan Konfigurasi Data Nodes 
 Login ke Data Nodes dan download ```.deb``` file:
