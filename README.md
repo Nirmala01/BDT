@@ -1,7 +1,7 @@
 # BDT-MySQLCluster
-# Implementasi MySQL Cluster dengan Load Balancer menggunakan ProxySQL
+# Implementasi MySQL Cluster dengan Load Balancer(ProxySQL)
 
-## 1. Setting Up Machine Menggunakan Vagrant
+## 1. Setting virtual mesin Menggunakan Vagrant
 Dibawah ini merupakan pembagian Arsitektur dan IP:
 
 No | HostName |    IP    | Keterangan  |
@@ -36,7 +36,7 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-## 2. Instalasi dan Konfigurasi Cluster Manager
+## 2. Instalasi dan Konfigurasi NDB Manager
 
 Login ke Cluster Manager dan download ```.deb``` file:
 ```
@@ -269,7 +269,7 @@ Kemudian cek
 ```
 mysql > SHOW ENGINE NDB STATUS \G
 ```
-## 5. Instalasi ProxySQL
+## 5. Instalasi Load Balance(ProxySQL)
 Download instalasi ProxySQL, Jalankan command pada server Proxy untuk mendownload
 ```
 $ cd /tmp
