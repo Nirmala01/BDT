@@ -67,3 +67,6 @@ INFORMATION_SCHEMA.PLUGINS
 [ss]
 
 ## Create partitiuat tabel dan contoh insert data dan hasil query-nya
+
+# Referensi
+https://www.vertabelo.com/blog/technical-articles/everything-you-need-to-know-about-mysql-partitions
