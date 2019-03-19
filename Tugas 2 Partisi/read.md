@@ -93,6 +93,7 @@ EXPLAIN PARTITIONS SELECT *
 FROM test.partitioned_measures
 WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
 ```
+![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.07.03%20AM.png)
 ### Jalankan query benchmark untuk masing-masing tabel. Hasilnya adalah running time.
 > Select Benchmark tanpa Partisi
 ```
@@ -104,6 +105,7 @@ WHERE
     measure_timestamp >= '2016-01-01'
         AND DAYOFWEEK(measure_timestamp) = 1;
 ```
+![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.07.45%20AM.png)
 > Select Benchmark dengan partisi
 ``` 
 SELECT SQL_NO_CACHE
@@ -114,28 +116,31 @@ WHERE
     measure_timestamp >= '2016-01-01'
         AND DAYOFWEEK(measure_timestamp) = 1;
 ```
-
+![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.08.19%20AM.png)
 ### Jalankan query delete (bagian BIG DELETE) dan tampilkan perbedaan running time-nya.
 > Menambah data tanpa Partisi
 ```
-ALTER TABLE `vertabelo`.`measures` 
-DROP INDEX `measure_timestamp` ;
+ALTER TABLE `test`.`measures` 
+ADD INDEX `index1` (`measure_timestamp` ASC);
 ```
+![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.20.28%20AM.png)
 > Menghapus data tanpa Partisi
 ```
-ALTER TABLE `vertabelo`.`measures` 
-ADD INDEX `index1` (`measure_timestamp` ASC);
-```
-> Menambah data dengan Partisi
-```
-ALTER TABLE `vertabelo`.`partitioned_measures` 
+ALTER TABLE `test`.`measures` 
 DROP INDEX `measure_timestamp` ;
 ```
-> Menghapus data dengan Partisi
+![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.19.18%20AM.png)
+> Menambah data dengan Partisi
 ```
-ALTER TABLE `vertabelo`.`partitioned_measures` 
+ALTER TABLE `test`.`partitioned_measures` 
 ADD INDEX `index1` (`measure_timestamp` ASC);
 ```
-
+![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.20.41%20AM.png)
+> Menghapus data dengan Partisi
+```
+ALTER TABLE `test`.`partitioned_measures` 
+DROP INDEX `measure_timestamp` ;
+```
+![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.20.09%20AM.png)
 # Referensi
 https://www.vertabelo.com/blog/technical-articles/everything-you-need-to-know-about-mysql-partitions
