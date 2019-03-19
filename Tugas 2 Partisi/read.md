@@ -13,11 +13,13 @@ Jika kita ingin melakukan partisisi namun tidak cocok dengan RANGE ataupun LIST,
 Partisi ini mirip dengan partisi HASH, perbedaannya hash menggunakan algoritma fungsi mysql standar yaitu MOD. sedangkan partisi key menggunakan algoritma yang memang didesain untuk data yang memiliki key jadi partisi ini digunakan untuk kolom yang memiliki key.
 
 # Mengecek apakah plugin partition telah aktif
-membuat database baru dengan nama ```test```
-```create database test;```
+membuat database baru dengan nama ```test```.
+```
+create database test;
+```
 Memberikan izin agar user dapat mengakses database test melalui ProxySQL
-```GRANT SELECT on test.* to 'user'@'%';
-
+```
+GRANT SELECT on test.* to 'user'@'%';
 FLUSH PRIVILEGES;
 ```
 lalu mengecek Plugin partisi aktif 
