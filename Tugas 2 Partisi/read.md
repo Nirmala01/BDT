@@ -12,7 +12,51 @@ Partisi ini mirip dengan partisi HASH, perbedaannya hash menggunakan algoritma f
 
 # Implementasi Partisi pada database Vertabelo
 pada kasus ini kami menggunakan database vertabelo 
-
+## 1. Range Partition
+```
+CREATE TABLE lc (
+    a INT NULL,
+    b INT NULL
+)
+PARTITION BY LIST COLUMNS(a,b) (
+    PARTITION p0 VALUES IN( (0,0), (NULL,NULL) ),
+    PARTITION p1 VALUES IN( (0,1), (0,2), (0,3), (1,1), (1,2) ),
+    PARTITION p2 VALUES IN( (1,0), (2,0), (2,1), (3,0), (3,1) ),
+    PARTITION p3 VALUES IN( (1,3), (2,2), (2,3), (3,2), (3,3) )
+);
+```
+## 2. Lish Partition
+```
+CREATE TABLE serverlogs (
+    serverid INT NOT NULL, 
+    logdata BLOB NOT NULL,
+    created DATETIME NOT NULL
+)
+PARTITION BY LIST (serverid)(
+    PARTITION server_east VALUES IN(1,43,65,12,56,73),
+    PARTITION server_west VALUES IN(534,6422,196,956,22)
+);
+```
+## 3. Hash Partision
+```CREATE TABLE serverlogs2 (
+    serverid INT NOT NULL, 
+    logdata BLOB NOT NULL,
+    created DATETIME NOT NULL
+)
+PARTITION BY HASH (serverid)
+PARTITIONS 10;
+```
+## 4. Key Partition
+```
+CREATE TABLE serverlogs4 (
+    serverid INT NOT NULL, 
+    logdata BLOB NOT NULL,
+    created DATETIME NOT NULL,
+    UNIQUE KEY (serverid)
+)
+PARTITION BY KEY()
+PARTITIONS 10;
+```
 
 ## Mengecek apakah plugin partition telah aktif (command dan screenshot hasil)
 ```
