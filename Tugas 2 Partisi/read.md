@@ -86,7 +86,7 @@ EXPLAIN SELECT *
 FROM test.measures
 WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
 ```
-[!Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.06.20%20AM.png)
+![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.06.20%20AM.png)
 > EXPLAIN dengan Partisi
 ```
 EXPLAIN PARTITIONS SELECT *
