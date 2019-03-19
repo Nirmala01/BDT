@@ -17,9 +17,9 @@ membuat database baru dengan nama ```test```.
 ```
 create database test;
 ```
-Memberikan izin agar user dapat mengakses database test melalui ProxySQL
+Memberikan izin agar userbdt dapat mengakses database test melalui ProxySQL
 ```
-GRANT SELECT on test.* to 'user'@'%';
+GRANT SELECT on test.* to 'userbdt'@'%';
 FLUSH PRIVILEGES;
 ```
 lalu mengecek Plugin partisi aktif 
@@ -33,18 +33,31 @@ INFORMATION_SCHEMA.PLUGINS
 # Implementasi Partisi pada database Vertabelo
 pada kasus ini kami menggunakan database vertabelo silahkan download terlebih dahulu [disini](https://drive.google.com/file/d/0B2Ksz9hP3LtXRUppZHdhT1pBaWM/view) 
 ## 1. Range Partition
+membuat tabel rc1 
 ```
-CREATE TABLE lc (
-    a INT NULL,
-    b INT NULL
+CREATE TABLE rc1 (
+    a INT,
+    b INT
 )
-PARTITION BY LIST COLUMNS(a,b) (
-    PARTITION p0 VALUES IN( (0,0), (NULL,NULL) ),
-    PARTITION p1 VALUES IN( (0,1), (0,2), (0,3), (1,1), (1,2) ),
-    PARTITION p2 VALUES IN( (1,0), (2,0), (2,1), (3,0), (3,1) ),
-    PARTITION p3 VALUES IN( (1,3), (2,2), (2,3), (3,2), (3,3) )
+PARTITION BY RANGE COLUMNS(a, b) (
+    PARTITION p0 VALUES LESS THAN (5, 12),
+    PARTITION p3 VALUES LESS THAN (MAXVALUE, MAXVALUE)
 );
 ```
+menambahkan value ke table rc1
+```
+INSERT INTO rc1 (a,b) VALUES (4,11);
+INSERT INTO rc1 (a,b) VALUES (5,11);
+INSERT INTO rc1 (a,b) VALUES (6,11);
+INSERT INTO rc1 (a,b) VALUES (4,12);
+INSERT INTO rc1 (a,b) VALUES (5,12);
+INSERT INTO rc1 (a,b) VALUES (6,12);
+INSERT INTO rc1 (a,b) VALUES (4,13);
+INSERT INTO rc1 (a,b) VALUES (5,13);
+INSERT INTO rc1 (a,b) VALUES (6,13);
+```
+melihat isi tabel rc1 ```Select * from rc1```
+
 ## 2. Lish Partition
 ```
 CREATE TABLE serverlogs (
