@@ -1,5 +1,7 @@
 # Partisi
 Partisi adalah memecah tabel ke dalam beberapa segment (partisi atau subpartisi), di mana tabel konvensional hanya mempunyai satu segment.
+## Catatan
+Di dalam partisi tidak diperbolehkan menggunakan ```foreign key```, untuk mengatasi masalah tersebut adalah dengan mematikan atau comment ```foreign key``` didalm tabel tersebut
 # Tipe Partisi
 1. Range
 Data dikelompokkan berdasarkan range(rentang) nilai yang kita tentukan. Range partition ini cocok digunakan pada kolom yang nilainya terdistribusi secara merata. Contoh yang paling sering adalah kolom tanggal.
