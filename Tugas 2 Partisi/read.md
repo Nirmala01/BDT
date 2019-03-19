@@ -100,7 +100,7 @@ WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
 SELECT SQL_NO_CACHE
     COUNT(*)
 FROM
-    vertabelo.measures
+    test.measures
 WHERE
     measure_timestamp >= '2016-01-01'
         AND DAYOFWEEK(measure_timestamp) = 1;
@@ -111,7 +111,7 @@ WHERE
 SELECT SQL_NO_CACHE
     COUNT(*)
 FROM
-    vertabelo.partitioned_measures
+    test.partitioned_measures
 WHERE
     measure_timestamp >= '2016-01-01'
         AND DAYOFWEEK(measure_timestamp) = 1;
