@@ -362,7 +362,7 @@ mysql > exit;
 
 ## ** Buat User MySQL pada ProxySQL agar dapat diakses melalui aplikasi **
 ```
-ProxySQLAdmin > INSERT INTO mysql_users(username, password, default_hostgroup) VALUES ('mysqlcluster', 'vagrant', 2);
+ProxySQLAdmin > INSERT INTO mysql_users(username, password, default_hostgroup) VALUES ('newuser', 'password', 2);
 ProxySQLAdmin > LOAD MYSQL USERS TO RUNTIME;
 ProxySQLAdmin > SAVE MYSQL USERS TO DISK;
 ```
