@@ -69,6 +69,18 @@ INFORMATION_SCHEMA.PLUGINS
 
 # Testing pada Range Partition
 ### Gunakan perintah EXPLAIN untuk melihat plan eksekusi query untuk masing-masing tabel.
+> EXPLAIN tanpa Partisi
+```
+EXPLAIN SELECT *
+FROM test.measures
+WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
+```
+> EXPLAIN dengan Partisi
+```
+EXPLAIN PARTITIONS SELECT *
+FROM test.partitioned_measures
+WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
+```
 ### Jalankan query benchmark untuk masing-masing tabel. Hasilnya adalah running time.
 ### Jalankan query delete (bagian BIG DELETE) dan tampilkan perbedaan running time-nya.
 
