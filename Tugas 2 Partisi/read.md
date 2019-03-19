@@ -68,9 +68,9 @@ INFORMATION_SCHEMA.PLUGINS
 [ss]
 
 # Testing pada Range Partition
-## Gunakan perintah EXPLAIN untuk melihat plan eksekusi query untuk masing-masing tabel.
-## Jalankan query benchmark untuk masing-masing tabel. Hasilnya adalah running time.
-## Jalankan query delete (bagian BIG DELETE) dan tampilkan perbedaan running time-nya.
+### Gunakan perintah EXPLAIN untuk melihat plan eksekusi query untuk masing-masing tabel.
+### Jalankan query benchmark untuk masing-masing tabel. Hasilnya adalah running time.
+### Jalankan query delete (bagian BIG DELETE) dan tampilkan perbedaan running time-nya.
 
 # Referensi
 https://www.vertabelo.com/blog/technical-articles/everything-you-need-to-know-about-mysql-partitions
