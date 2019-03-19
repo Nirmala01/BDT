@@ -11,7 +11,6 @@ Jika kita ingin melakukan partisisi namun tidak cocok dengan RANGE ataupun LIST,
 Partisi ini mirip dengan partisi HASH, perbedaannya hash menggunakan algoritma fungsi mysql standar yaitu MOD. sedangkan partisi key menggunakan algoritma yang memang didesain untuk data yang memiliki key jadi partisi ini digunakan untuk kolom yang memiliki key.
 
 # Implementasi Partisi pada database Vertabelo
-# Create partitiuat tabel dan contoh insert data dan hasil query-nya
 pada kasus ini kami menggunakan database vertabelo dengan nama database test
 ## 1. Range Partition
 ```
