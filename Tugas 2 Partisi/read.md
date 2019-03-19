@@ -93,7 +93,48 @@ FROM test.partitioned_measures
 WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
 ```
 ### Jalankan query benchmark untuk masing-masing tabel. Hasilnya adalah running time.
+> Select Benchmark tanpa Partisi
+```
+SELECT SQL_NO_CACHE
+    COUNT(*)
+FROM
+    vertabelo.measures
+WHERE
+    measure_timestamp >= '2016-01-01'
+        AND DAYOFWEEK(measure_timestamp) = 1;
+```
+> Select Benchmark dengan partisi
+``` 
+SELECT SQL_NO_CACHE
+    COUNT(*)
+FROM
+    vertabelo.partitioned_measures
+WHERE
+    measure_timestamp >= '2016-01-01'
+        AND DAYOFWEEK(measure_timestamp) = 1;
+```
+
 ### Jalankan query delete (bagian BIG DELETE) dan tampilkan perbedaan running time-nya.
+> Menambah data tanpa Partisi
+```
+ALTER TABLE `vertabelo`.`measures` 
+DROP INDEX `measure_timestamp` ;
+```
+> Menghapus data tanpa Partisi
+```
+ALTER TABLE `vertabelo`.`measures` 
+ADD INDEX `index1` (`measure_timestamp` ASC);
+```
+> Menambah data dengan Partisi
+```
+ALTER TABLE `vertabelo`.`partitioned_measures` 
+DROP INDEX `measure_timestamp` ;
+```
+> Menghapus data dengan Partisi
+```
+ALTER TABLE `vertabelo`.`partitioned_measures` 
+ADD INDEX `index1` (`measure_timestamp` ASC);
+```
 
 # Referensi
 https://www.vertabelo.com/blog/technical-articles/everything-you-need-to-know-about-mysql-partitions
