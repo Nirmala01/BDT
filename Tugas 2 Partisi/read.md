@@ -12,6 +12,14 @@ Jika kita ingin melakukan partisisi namun tidak cocok dengan RANGE ataupun LIST,
 4. Key
 Partisi ini mirip dengan partisi HASH, perbedaannya hash menggunakan algoritma fungsi mysql standar yaitu MOD. sedangkan partisi key menggunakan algoritma yang memang didesain untuk data yang memiliki key jadi partisi ini digunakan untuk kolom yang memiliki key.
 
+# Mengecek apakah plugin partition telah aktif (command dan screenshot hasil)
+```
+SHOW PLUGINS 
+atau
+INFORMATION_SCHEMA.PLUGINS
+```
+[ss]
+
 # Implementasi Partisi pada database Vertabelo
 pada kasus ini kami menggunakan database vertabelo silahkan download terlebih dahulu [disini](https://drive.google.com/file/d/0B2Ksz9hP3LtXRUppZHdhT1pBaWM/view) 
 ## 1. Range Partition
@@ -59,14 +67,6 @@ CREATE TABLE serverlogs4 (
 PARTITION BY KEY()
 PARTITIONS 10;
 ```
-
-# Mengecek apakah plugin partition telah aktif (command dan screenshot hasil)
-```
-SHOW PLUGINS 
-atau
-INFORMATION_SCHEMA.PLUGINS
-```
-[ss]
 
 # Testing pada Range Partition
 ### Gunakan perintah EXPLAIN untuk melihat plan eksekusi query untuk masing-masing tabel.
