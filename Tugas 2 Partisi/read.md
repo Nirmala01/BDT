@@ -146,24 +146,24 @@ WHERE
 ALTER TABLE `test`.`measures` 
 ADD INDEX `index1` (`measure_timestamp` ASC);
 ```
-![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.20.28%20AM.png)
+![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.19.18%20AM.png)
 > Menghapus data tanpa Partisi.
 ```
 ALTER TABLE `test`.`measures` 
 DROP INDEX `measure_timestamp` ;
 ```
-![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.19.18%20AM.png)
+![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.20.28%20AM.png)
 > Menambah data dengan Partisi.
 ```
 ALTER TABLE `test`.`partitioned_measures` 
 ADD INDEX `index1` (`measure_timestamp` ASC);
 ```
-![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.20.41%20AM.png)
+![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.20.09%20AM.png)
 > Menghapus data dengan Partisi.
 ```
 ALTER TABLE `test`.`partitioned_measures` 
 DROP INDEX `measure_timestamp` ;
 ```
-![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.20.09%20AM.png)
+![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.20.41%20AM.png)
 # Referensi
 https://www.vertabelo.com/blog/technical-articles/everything-you-need-to-know-about-mysql-partitions
