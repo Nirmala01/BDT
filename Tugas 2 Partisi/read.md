@@ -59,8 +59,8 @@ INSERT INTO rc1 (a,b) VALUES (5,13);
 INSERT INTO rc1 (a,b) VALUES (6,13);
 ```
 melihat isi tabel rc1 ```Select * from rc1```
-![Ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%202%20Partisi/Ss/showisitable.png)
 
+![Ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%202%20Partisi/Ss/showisitable.png)
 melakukan select dimana nilai yang <= 5,12 akan masuk pada p0 sesuai dengan partisi yang digunakan.
 ```
 SELECT *,'p0' FROM rc1 PARTITION (p0) UNION ALL SELECT *,'p3' FROM rc1 PARTITION (p3) ORDER BY a,b ASC;
