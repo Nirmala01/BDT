@@ -149,8 +149,10 @@ ADD INDEX `index1` (`measure_timestamp` ASC);
 ![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.19.18%20AM.png)
 > Menghapus data tanpa Partisi.
 ```
-ALTER TABLE `test`.`measures` 
-DROP INDEX `measure_timestamp` ;
+DELETE
+FROM vertabelo.measures
+WHERE  measure_timestamp < '2015-01-01';
+
 ```
 ![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.20.28%20AM.png)
 > Menambah data dengan Partisi.
@@ -161,8 +163,7 @@ ADD INDEX `index1` (`measure_timestamp` ASC);
 ![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.20.09%20AM.png)
 > Menghapus data dengan Partisi.
 ```
-ALTER TABLE `test`.`partitioned_measures` 
-DROP INDEX `measure_timestamp` ;
+ALTER TABLE vertabelo.partitioned_measures DROP PARTITION prev_year_logs ;
 ```
 ![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.20.41%20AM.png)
 # Referensi
