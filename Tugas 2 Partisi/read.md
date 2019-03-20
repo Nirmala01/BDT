@@ -23,6 +23,7 @@ GRANT SELECT on test.* to 'userbdt'@'%';
 FLUSH PRIVILEGES;
 ```
 ![Ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%202%20Partisi/Ss/user.PNG)
+
 mengecek Plugin partisi aktif. 
 ```
 SHOW PLUGINS 
