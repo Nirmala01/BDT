@@ -1,7 +1,7 @@
 # Partisi
 Partisi adalah memecah tabel ke dalam beberapa segment (partisi atau subpartisi), di mana tabel konvensional hanya mempunyai satu segment.
 ## Catatan
-Di dalam partisi tidak diperbolehkan menggunakan ```foreign key```, untuk mengatasi masalah tersebut adalah dengan mematikan atau comment ```foreign key``` didalam tabel tersebut
+Di dalam partisi tidak diperbolehkan menggunakan ```foreign key```, untuk mengatasi masalah tersebut adalah dengan mematikan atau comment ```foreign key``` didalam tabel tersebut.
 # Tipe Partisi
 1. Range
 Data dikelompokkan berdasarkan range(rentang) nilai yang kita tentukan. Range partition ini cocok digunakan pada kolom yang nilainya terdistribusi secara merata. Contoh yang paling sering adalah kolom tanggal.
@@ -17,23 +17,25 @@ membuat database baru dengan nama ```test```.
 ```
 create database test;
 ```
-Memberikan izin agar userbdt dapat mengakses database test melalui ProxySQL
+memberikan izin agar userbdt dapat mengakses database test melalui ProxySQL.
 ```
 GRANT SELECT on test.* to 'userbdt'@'%';
 FLUSH PRIVILEGES;
 ```
-lalu mengecek Plugin partisi aktif 
+![Ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%202%20Partisi/Ss/user.PNG)
+mengecek Plugin partisi aktif. 
 ```
 SHOW PLUGINS 
+```
 atau
+```
 INFORMATION_SCHEMA.PLUGINS
 ```
-[ss]
 
 # Implementasi Partisi pada database Vertabelo
 pada kasus ini kami menggunakan database vertabelo silahkan download terlebih dahulu [disini](https://drive.google.com/file/d/0B2Ksz9hP3LtXRUppZHdhT1pBaWM/view) 
 ## 1. Range Partition
-membuat tabel rc1 
+membuat tabel rc1.
 ```
 CREATE TABLE rc1 (
     a INT,
@@ -44,7 +46,7 @@ PARTITION BY RANGE COLUMNS(a, b) (
     PARTITION p3 VALUES LESS THAN (MAXVALUE, MAXVALUE)
 );
 ```
-menambahkan value ke table rc1
+menambahkan value ke table rc1.
 ```
 INSERT INTO rc1 (a,b) VALUES (4,11);
 INSERT INTO rc1 (a,b) VALUES (5,11);
@@ -57,6 +59,13 @@ INSERT INTO rc1 (a,b) VALUES (5,13);
 INSERT INTO rc1 (a,b) VALUES (6,13);
 ```
 melihat isi tabel rc1 ```Select * from rc1```
+![Ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%202%20Partisi/Ss/showisitable.png)
+
+melakukan select dimana nilai yang <= 5,12 akan masuk pada p0 sesuai dengan partisi yang digunakan.
+```
+SELECT *,'p0' FROM rc1 PARTITION (p0) UNION ALL SELECT *,'p3' FROM rc1 PARTITION (p3) ORDER BY a,b ASC;
+```
+![Ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%202%20Partisi/Ss/showpartisi.png)
 
 ## 2. Lish Partition
 ```
@@ -93,14 +102,14 @@ PARTITIONS 10;
 
 # Testing pada Range Partition
 ### Gunakan perintah EXPLAIN untuk melihat plan eksekusi query untuk masing-masing tabel.
-> EXPLAIN tanpa Partisi
+> EXPLAIN tanpa Partisi.
 ```
 EXPLAIN SELECT *
 FROM test.measures
 WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
 ```
 ![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.06.20%20AM.png)
-> EXPLAIN dengan Partisi
+> EXPLAIN dengan Partisi.
 ```
 EXPLAIN PARTITIONS SELECT *
 FROM test.partitioned_measures
@@ -108,7 +117,7 @@ WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
 ```
 ![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.07.03%20AM.png)
 ### Jalankan query benchmark untuk masing-masing tabel. Hasilnya adalah running time.
-> Select Benchmark tanpa Partisi
+> Select Benchmark tanpa Partisi.
 ```
 SELECT SQL_NO_CACHE
     COUNT(*)
@@ -119,7 +128,7 @@ WHERE
         AND DAYOFWEEK(measure_timestamp) = 1;
 ```
 ![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.07.45%20AM.png)
-> Select Benchmark dengan partisi
+> Select Benchmark dengan partisi.
 ``` 
 SELECT SQL_NO_CACHE
     COUNT(*)
@@ -131,25 +140,25 @@ WHERE
 ```
 ![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.08.19%20AM.png)
 ### Jalankan query delete (bagian BIG DELETE) dan tampilkan perbedaan running time-nya.
-> Menambah data tanpa Partisi
+> Menambah data tanpa Partisi.
 ```
 ALTER TABLE `test`.`measures` 
 ADD INDEX `index1` (`measure_timestamp` ASC);
 ```
 ![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.20.28%20AM.png)
-> Menghapus data tanpa Partisi
+> Menghapus data tanpa Partisi.
 ```
 ALTER TABLE `test`.`measures` 
 DROP INDEX `measure_timestamp` ;
 ```
 ![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.19.18%20AM.png)
-> Menambah data dengan Partisi
+> Menambah data dengan Partisi.
 ```
 ALTER TABLE `test`.`partitioned_measures` 
 ADD INDEX `index1` (`measure_timestamp` ASC);
 ```
 ![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.20.41%20AM.png)
-> Menghapus data dengan Partisi
+> Menghapus data dengan Partisi.
 ```
 ALTER TABLE `test`.`partitioned_measures` 
 DROP INDEX `measure_timestamp` ;
