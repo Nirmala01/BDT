@@ -41,7 +41,7 @@ mongoimport --host clusterdb1-shard-00-00-qlv0u.mongodb.net:27017 --db iris --ty
 **Setelah berhasil akan muncul seperti gambar dibawah ini maka import dataset json telah berhasil.**
 ![screenshots](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas3_Implementasi_MongoDB/screenshots/import.PNG)
 
-**Selanjutnya mengakses data menggunakan MongoDB Compass dan refrest maka akan muncul seperti ini.**
+**Jika berhasil maka dataset yang sudah di importkan akan masuk ke MongoDB Compass seperti gambar ini.**
 ![screenshots](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas3_Implementasi_MongoDB/screenshots/Screenshot%20(40).png)
 
 # Regferensi
