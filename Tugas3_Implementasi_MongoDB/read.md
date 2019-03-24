@@ -45,9 +45,9 @@ mongoimport --host clusterdb1-shard-00-00-qlv0u.mongodb.net:27017 --db iris --ty
 ![screenshots](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas3_Implementasi_MongoDB/screenshots/Screenshot%20(40).png)
 
 # Regferensi
-https://docs.mongodb.com/manual/
+https://www.youtube.com/watch?time_continue=1&v=tpz-6Trd1UI
 
-https://docs.mongodb.com/manual/crud/
+https://www.mongodb.com/cloud/atlas
 
 
 
