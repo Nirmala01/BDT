@@ -34,7 +34,7 @@ mongoimport --host clusterdb1-shard-00-00-qlv0u.mongodb.net:27017 --db iris --ty
 --file lokasi file dari json.
 --authenticationDatabase autotentikasi yang digunakan adalah admin.**
 
-**Jika muncul error seperti gambar dibawah ini maka gantilah jaringan yang kalian gunakan. kemungkinan mongodb mengblokir jaringan anda dan perhatikan dengan baik-baik user dan passwordnya.**
+**Jika muncul error seperti gambar dibawah ini maka gantilah jaringan yang kalian gunakan. kemungkinan mongodb mengblokir jaringan anda dan perhatikan dengan baik-baik user dan passwordnya maupun datasetnya sebenarnya dataset yang saya gunakan awalnya catalog books tapi terdapat error sehingga saya menggati datasetnya menjadi iris.**
 
 ![sceenshots](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas3_Implementasi_MongoDB/screenshots/error.PNG)
 
