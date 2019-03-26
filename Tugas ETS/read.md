@@ -33,20 +33,24 @@ mkdir wordpress
 wget -c http://wordpress.org/latest.tar.gz
 tar -xzvf latest.tar.gz
 ```
+
 **ubah database ENGINE menjadi NDB**
-**copy schema.php ke file vagrant untuk memudahkan dalam mengedit ```ENGIEN=NDB```.
+
+**copy schema.php ke file vagrant untuk memudahkan dalam mengedit ```ENGIEN=NDB```.**
 ```
 cp /var/www/html/wordpress/wp-admin/includes/schema.php /vagrant
 ```
 **setelah itu buka schema.php yang sudah dicopykan ke file vagrant dan tambahkan ```ENGINE=NDB``` disetiap tabelnya.**
 [ss]
+
 **copy kembali schema.php ke dalam direktori var/www/html/wordpress/wp-admin/includes/**
+
 **editlah wp-config-sample.php isi sesuai dengan database dan user yang telah kita buat**
 ```
 sudo nano wp-config-sample.php
 ```
 (screenshot wp-config)
-**rename file file wp-config-sample.php menjadi wp-config.php
+**rename file file wp-config-sample.php menjadi wp-config.php**
 ```
 mv wp-config-sample.php wp-config.php
 ```
@@ -55,10 +59,10 @@ mv wp-config-sample.php wp-config.php
 **maka akan muncul gambar seperti ini:**
 (screenshot)
 
-**ikuti langkah instalasi wordpress
+**ikuti langkah instalasi wordpress**
 (screenshot)
 
-**mengecek apakah database sudah terhubung oleh wordpress pada salah satu node
+**mengecek apakah database sudah terhubung oleh wordpress pada salah satu node**
 ```
 vagrant ssh clusterdb2
 mysql -u userwordpress -p -h 192.168.33.14 -P 6033
