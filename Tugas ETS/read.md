@@ -99,6 +99,8 @@ mysql -u userwordpress -p -h 192.168.33.14 -P 6033
 show databases;
 use tugasETS;
 ```
+![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/showtables.PNG)
+
 ## Test database wordpress pada cLuster 2 DAN 3
 **cek status ndb pada salah satu node**
 ```
