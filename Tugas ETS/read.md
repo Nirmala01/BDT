@@ -1,5 +1,6 @@
-TUGAS ETS 
-Dibawah ini merupakan pembagian Arsitektur dan IP mysql-cLuster yang kita gunakan:
+# TUGAS ETS 
+## Dibawah ini merupakan pembagian Arsitektur dan IP mysql-cLuster yang kita gunakan:
+
 No | HostName |    IP    | Keterangan  |
 ---|----------|----------|-------------|
 1  |clusterdb1|192.168.33.11|ndb-Manager|
