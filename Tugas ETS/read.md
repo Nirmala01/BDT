@@ -17,13 +17,17 @@ vagrant ssh clusterdb2
 mysql -u root -p
 ```
 **create user**
+
 ![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/user%20baru%20wordpress.PNG)
+
 **masuk ke clusterdb4 untuk menambahkan user**
 ```
 vagrant ssh clusterdb4
 mysql -u admin -p -h 127.0.0.1 -P 6032 --prompt='ProxySQLAdmin> '
 ```
+
 ![ssets](mysql -u admin -p -h 127.0.0.1 -P 6032 --prompt='ProxySQLAdmin> ')
+
 # instalasi apache2, php dan wordpress
 **masuk ke cluserdb4(proxysql) :**
 ```
@@ -55,6 +59,7 @@ tar -xzvf latest.tar.gz
 cp /var/www/html/wordpress/wp-admin/includes/schema.php /vagrant
 ```
 **setelah itu buka schema.php yang sudah dicopykan ke file vagrant dan tambahkan ```ENGINE=NDB``` disetiap tabelnya.**
+
 ![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/engine%3Dndb.PNG)
 
 **copy kembali schema.php ke dalam direktori var/www/html/wordpress/wp-admin/includes/**
@@ -64,6 +69,7 @@ cp /var/www/html/wordpress/wp-admin/includes/schema.php /vagrant
 sudo nano wp-config-sample.php
 ```
 ![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/configphp.PNG)
+
 **rename file file wp-config-sample.php menjadi wp-config.php**
 ```
 mv wp-config-sample.php wp-config.php
@@ -71,15 +77,19 @@ mv wp-config-sample.php wp-config.php
 ## bukalah wordpress 192.168.33.14/wordpress/wordpress pada browser**
 
 **maka akan muncul gambar seperti ini:**
+
 ![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/Screenshot%20(49).png)
 
 **ikuti langkah instalasi wordpress jika berhasil maka muncil seperti gambar ini**
+
 ![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/Screenshot%20(50).png)
 
 **tamilan awal wordpress**
+
 ![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/Screenshot%20(51).png)
 
 **coba post baru**
+
 ![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/Screenshot%20(53).png)
 
 **mengecek apakah database sudah terhubung oleh wordpress pada salah satu node**
