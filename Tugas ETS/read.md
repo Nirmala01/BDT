@@ -24,7 +24,7 @@ sudo apt-get install -y php-gd php-imap php-ldap php-odbc php-pear php-xml php-x
 ```
 
 ## instalasi wordpress
-**buat direktori baru didalam direktori  /var/www/html/ **
+**buat direktori baru didalam direktori  /var/www/html/**
 ```
 mkdir wordpress
 ```
@@ -73,7 +73,7 @@ show
 ```
 (screenshot)
 
-**matikan salah satu node (yang dimatikan cludterdb2)
+**matikan salah satu node (yang dimatikan cludterdb2)**
 ```
 sudo systemctl stop mysql
 ```
