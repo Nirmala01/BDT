@@ -26,7 +26,7 @@ vagrant ssh clusterdb4
 mysql -u admin -p -h 127.0.0.1 -P 6032 --prompt='ProxySQLAdmin> '
 ```
 
-![ssets](mysql -u admin -p -h 127.0.0.1 -P 6032 --prompt='ProxySQLAdmin> ')
+![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/izinuserpadaproxy.PNG)
 
 # instalasi apache2, php dan wordpress
 **masuk ke cluserdb4(proxysql) :**
