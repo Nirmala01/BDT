@@ -1,0 +1,21 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "cassandra" do |cassandra|
+    cassandra.vm.hostname = "cassandra"
+    cassandra.vm.box = "ubuntu/xenial64"
+    cassandra.vm.network "private_network", ip: "192.168.33.10"
+
+      # Opsional. Edit sesuai dengan nama network adapter di komputer
+      # node.vm.network "public_network", bridge: "Intel(R) Dual Band Wireless-AC 3165"
+      
+    cassandra.vm.provider "virtualbox" do |vb|
+      vb.name = "cassandra"
+      vb.gui = false
+      vb.memory = "1024"
+    end
+
+    # cassandra.vm.provision "shell", path: "provision/bootstrap.sh", privileged: false
+  end
+end
