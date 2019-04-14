@@ -110,14 +110,16 @@ EXPLAIN SELECT *
 FROM test.measures
 WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
 ```
-![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.06.20%20AM.png)
+![Ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%202%20Partisi/Ss/explain1.PNG)
+![Ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%202%20Partisi/Ss/explain2.PNG)
 > EXPLAIN dengan Partisi.
 ```
 EXPLAIN PARTITIONS SELECT *
 FROM test.partitioned_measures
 WHERE measure_timestamp >= '2016-01-01' AND DAYOFWEEK(measure_timestamp) = 1;
 ```
-![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.07.03%20AM.png)
+![Ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%202%20Partisi/Ss/explainparti1.PNG)
+![Ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%202%20Partisi/Ss/explainparti2.PNG)
 ### Jalankan query benchmark untuk masing-masing tabel. Hasilnya adalah running time.
 > Select Benchmark tanpa Partisi.
 ```
@@ -129,7 +131,8 @@ WHERE
     measure_timestamp >= '2016-01-01'
         AND DAYOFWEEK(measure_timestamp) = 1;
 ```
-![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.07.45%20AM.png)
+![Ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%202%20Partisi/Ss/ben.PNG)
+![Ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%202%20Partisi/Ss/ben2.PNG)
 > Select Benchmark dengan partisi.
 ``` 
 SELECT SQL_NO_CACHE
@@ -140,14 +143,9 @@ WHERE
     measure_timestamp >= '2016-01-01'
         AND DAYOFWEEK(measure_timestamp) = 1;
 ```
-![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.08.19%20AM.png)
+![Ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%202%20Partisi/Ss/benparti1.PNG)
+![Ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%202%20Partisi/Ss/benparti2.PNG)
 ### Jalankan query delete (bagian BIG DELETE) dan tampilkan perbedaan running time-nya.
-> Menambah data tanpa Partisi.
-```
-ALTER TABLE `test`.`measures` 
-ADD INDEX `index1` (`measure_timestamp` ASC);
-```
-![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.19.18%20AM.png)
 > Menghapus data tanpa Partisi.
 ```
 DELETE
@@ -155,17 +153,15 @@ FROM test.measures
 WHERE  measure_timestamp < '2015-01-01';
 
 ```
-![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.20.28%20AM.png)
-> Menambah data dengan Partisi.
-```
-ALTER TABLE `test`.`partitioned_measures` 
-ADD INDEX `index1` (`measure_timestamp` ASC);
-```
-![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.20.09%20AM.png)
+![Ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%202%20Partisi/Ss/delet1.PNG)
+![Ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%202%20Partisi/Ss/delet2.PNG)
+
 > Menghapus data dengan Partisi.
 ```
-ALTER TABLE test.partitioned_measures DROP PARTITION prev_year_logs ;
+DELETE
+FROM bdt.measures
+WHERE measure_timetamp < '2016-01-01';
 ```
-![Ss](https://github.com/Nirmala01/BDT/blob/master/Tugas%202%20Partisi/Ss/Screen%20Shot%202019-03-20%20at%204.20.41%20AM.png)
+![Ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%202%20Partisi/Ss/deletparti1.PNG)
 # Referensi
 https://www.vertabelo.com/blog/technical-articles/everything-you-need-to-know-about-mysql-partitions
