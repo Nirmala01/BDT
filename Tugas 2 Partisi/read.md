@@ -30,7 +30,12 @@ SHOW PLUGINS
 ```
 atau
 ```
-INFORMATION_SCHEMA.PLUGINS
+SELECT 
+    PLUGIN_NAME as Name,
+    PLUGIN_VERSION as Version,
+    PLUGIN_STATUS as Status
+    FROM INFORMATION_SCHEMA.PLUGINS
+    WHERE PLUGIN_TYPE='STORAGE ENGINE';
 ```
 ![Ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%202%20Partisi/Ss/show%20pluging.PNG)
 # Implementasi Partisi pada database Vertabelo
