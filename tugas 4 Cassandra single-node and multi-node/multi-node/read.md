@@ -60,7 +60,8 @@ cqlsh 192.168.33.12
 ```
 sintaks ini saya jalankan di node1 dengan ip yang digunakan ip dari node2 192.168.33.12.
 akan terlihat seperti gambar dibawah
-[ss]
+
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/tugas%204%20Cassandra%20single-node%20and%20multi-node/multi-node/ss/masukcqlsh.PNG)
 
 ##### 2. Buatlah KeySpace karena pada Cassandra database berarti keyspace. dengan sintak sebagai berikut:
 ```
@@ -68,7 +69,8 @@ CREATE KEYSPACE IF NOT EXISTS pokemondb WITH REPLICATION = { 'class' : 'Ne
 tworkTopologyStrategy', 'dc1' : 2 };
 ```
 Ganti ```pokemon``` atau keyspace sesuai dengan database yang kalian inginkan. replikasi yang kita gunakan adalah NetworkTopologyStaregy dengan replication factor 2.
-[ss]
+
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/tugas%204%20Cassandra%20single-node%20and%20multi-node/multi-node/ss/keyspace.PNG)
 
 ##### 3. Buatlah Table yang isinya sama dengan dataset yang mau kita import. sintaknya sebagai barikut;
 ```
@@ -78,7 +80,7 @@ CREATE TABLE pokemondb.pokemon ( no_id int PRIMARY KEY, Name text, Type_1 text, 
 pokemondb adalah keyspace dan pokemon adalah nama table yang kita buat. ```[namadatabe/keyspace].[nama_table]([nama_kolom] [type])```
 . ini bisa dijalankan didalam keyspace dengan sintaks ```use [namakeyspace]``` maupun diluar keyspace selama masih didalam cqlsh.
 
-[ss]
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/tugas%204%20Cassandra%20single-node%20and%20multi-node/multi-node/ss/buattable.PNG)
 
 ##### 4. Import dataset ke Cassandra kedalam table yang telah kita buat sintaksnya sebagai berikut :
 sebelum itu masuk ke keyspace
@@ -92,7 +94,7 @@ COPY pokemondb.pokemon (no_id, Name, Type_1, Type_2, Total, HP, Attack, Defence,
 ```
 hampir sama dengan cara membuat table, seperti ini [namadb].[nama_table]([kolom]) from [dataset.csv] with [value_yangditambahkan].
 
-[ss]
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/tugas%204%20Cassandra%20single-node%20and%20multi-node/multi-node/ss/importdb.PNG)
 
 ## CDRU
 
@@ -101,7 +103,7 @@ hampir sama dengan cara membuat table, seperti ini [namadb].[nama_table]([kolom]
 SELECT * FROM pokemondb.pokemon;
 ```
 jika berhasil maka akan tampil data seperti berikut:
-[ss]
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/tugas%204%20Cassandra%20single-node%20and%20multi-node/multi-node/ss/show%20table.PNG)
 
 ##### 2. Create atau membuat data baru 
 ```
@@ -110,7 +112,7 @@ nix red', 'Water', 'Flying', 100, 100, 200, 50, 50, 50, 100, 2, 'False');
 ```
 lalu ```select * from pokemondb.pokemon where no_id=1111;``` maka akan tampil seperti ini.
 
-[ss]
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/tugas%204%20Cassandra%20single-node%20and%20multi-node/multi-node/ss/insertdancek.PNG)
 
 ##### 3. Update data biar lebih muda saya hanya mengupdate data yang telah kita buat
 disini yang mau saya update itu data dari type_1 = Dragon.
@@ -119,7 +121,7 @@ update pokemondb.pokemon set type_1 = 'Dragon' where no_id=1111;
 ```
 lalu ```select * from pokemondb.pokemon where no_id=1111;``` maka awalnya type_1 = Water berubah menjadi Dragon seperti gambar ini
 
-[ss]
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/tugas%204%20Cassandra%20single-node%20and%20multi-node/multi-node/ss/masukcqlsh.PNG)
 
 ##### 4. Delete data 
 saya akan menghapus data yang telah kita buat tadi dengan no_id = 1111 dengan sintaks seperti ini
@@ -127,7 +129,8 @@ saya akan menghapus data yang telah kita buat tadi dengan no_id = 1111 dengan si
 delete from pokemondb.pokemon where no_id=1111;
 ```
 lalu cari lagi data dengan no_id = 1111 ```select * from pokemondb.pokemon where no_id=1111;``` maka tidak terdapat data dengan no_id tersebut. seperti gamabr ini:
-[ss]
+
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/tugas%204%20Cassandra%20single-node%20and%20multi-node/multi-node/ss/deletedancek.PNG)
 
 
 ### Kesimpulan 
