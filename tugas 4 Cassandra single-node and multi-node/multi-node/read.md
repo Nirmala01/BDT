@@ -52,6 +52,84 @@ apabila belum memiliki ```IPTABLES``` maka install lah terlebih dahulu dengan si
 ```
 sudo apt-get install iptables -y
 ```
+
+## Import Dataset .CSV
+##### 1. Masuklah ke cassandra terlebih dahulu dengan ```cqlsh``` . dalam kasus ini saya multi-node maka sintaknya seperti berikut :
+```
+cqlsh 192.168.33.12
+```
+sintaks ini saya jalankan di node1 dengan ip yang digunakan ip dari node2 192.168.33.12.
+akan terlihat seperti gambar dibawah
+[ss]
+
+##### 2. Buatlah KeySpace karena pada Cassandra database berarti keyspace. dengan sintak sebagai berikut:
+```
+CREATE KEYSPACE IF NOT EXISTS pokemondb WITH REPLICATION = { 'class' : 'Ne
+tworkTopologyStrategy', 'dc1' : 2 };
+```
+Ganti ```pokemon``` atau keyspace sesuai dengan database yang kalian inginkan. replikasi yang kita gunakan adalah NetworkTopologyStaregy dengan replication factor 2.
+[ss]
+
+##### 3. Buatlah Table yang isinya sama dengan dataset yang mau kita import. sintaknya sebagai barikut;
+```
+CREATE TABLE pokemondb.pokemon ( no_id int PRIMARY KEY, Name text, Type_1 text, Type_2 text, Total int
+, HP int, Attack int, Defence int, Sp_Atk int, Sp_Def int, Speed int, Generation int, Legendary text );
+```
+pokemondb adalah keyspace dan pokemon adalah nama table yang kita buat. ```[namadatabe/keyspace].[nama_table]([nama_kolom] [type])```
+. ini bisa dijalankan didalam keyspace dengan sintaks ```use [namakeyspace]``` maupun diluar keyspace selama masih didalam cqlsh.
+
+[ss]
+
+##### 4. Import dataset ke Cassandra kedalam table yang telah kita buat sintaksnya sebagai berikut :
+sebelum itu masuk ke keyspace
+```
+use pokemondb
+```
+lakukan sintaks berikut dan jalan lupa datasetnya pindahkan dalam folder yang sama dengan cassandra multi-node:
+```
+COPY pokemondb.pokemon (no_id, Name, Type_1, Type_2, Total, HP, Attack, Defence, Sp_Atk, Sp_Def, Speed
+, Generation, Legendary) from '/vagrant/Pokemon.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+```
+hampir sama dengan cara membuat table, seperti ini [namadb].[nama_table]([kolom]) from [dataset.csv] with [value_yangditambahkan].
+
+[ss]
+
+## CDRU
+
+##### 1. Cek hasil Import atau read table 
+```
+SELECT * FROM pokemondb.pokemon;
+```
+jika berhasil maka akan tampil data seperti berikut:
+[ss]
+
+##### 2. Create atau membuat data baru 
+```
+INSERT INTO pokemondb.pokemon ( no_id, Name, Type_1, Type_2, Total, HP, Attack, Defence, Sp_Atk, Sp_Def, Speed, Generation, Legendary) VALUES(1111, 'O
+nix red', 'Water', 'Flying', 100, 100, 200, 50, 50, 50, 100, 2, 'False');
+```
+lalu ```select * from pokemondb.pokemon where no_id=1111;``` maka akan tampil seperti ini.
+
+[ss]
+
+##### 3. Update data biar lebih muda saya hanya mengupdate data yang telah kita buat
+disini yang mau saya update itu data dari type_1 = Dragon.
+```
+update pokemondb.pokemon set type_1 = 'Dragon' where no_id=1111;
+```
+lalu ```select * from pokemondb.pokemon where no_id=1111;``` maka awalnya type_1 = Water berubah menjadi Dragon seperti gambar ini
+
+[ss]
+
+##### 4. Delete data 
+saya akan menghapus data yang telah kita buat tadi dengan no_id = 1111 dengan sintaks seperti ini
+```
+delete from pokemondb.pokemon where no_id=1111;
+```
+lalu cari lagi data dengan no_id = 1111 ```select * from pokemondb.pokemon where no_id=1111;``` maka tidak terdapat data dengan no_id tersebut. seperti gamabr ini:
+[ss]
+
+
 ### Kesimpulan 
 sangat mudah dalam proses isntalasi cassandra multi-node dikarenakan cassandra telah didukung oleh arsitektur multi-node secara default berbeda dengan MySQL cluster yang terbilang susah. kita juga dapat mengakses node lain dengan sintaks :
 ```
