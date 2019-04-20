@@ -5,7 +5,7 @@ Cassandra atau lengkapnya Apache Cassandra adalah salah satu produk open source 
 ## Dataset
 ![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/tugas%204%20Cassandra%20single-node%20and%20multi-node/multi-node/ss/dataset.PNG)
 
-Saya menggunakan dataset Pokemon with Stats. yang berisi tentang Pokemon games untuk menghitung berapa banyak Attack (serangan) dan Speed dari pokemonnya. Dataset ini terdiri dari 13 kolom, yaitu:
+Saya menggunakan dataset Pokemon with Stats bisa dilihat [di Kaggle](https://www.kaggle.com/abcsds/pokemon). yang berisi tentang Pokemon games untuk menghitung berapa banyak Attack (serangan) dan Speed dari pokemonnya. Dataset ini terdiri dari 13 kolom, yaitu:
 1. ID : untuk setiap pokemon
 2. Name : Nama dari Pokemon
 3. Type 1 : Menentukan kelemahan terhadap serangan
@@ -156,12 +156,12 @@ lalu cari lagi data dengan no_id = 1111 ```select * from pokemondb.pokemon where
 
 
 ### Kesimpulan 
-sangat mudah dalam proses isntalasi cassandra multi-node dikarenakan cassandra telah didukung oleh arsitektur multi-node secara default berbeda dengan MySQL cluster yang terbilang susah. Cassandra juga bisa menjadi salah satu solusi tepat yang digunakan untuk menyimpan data dalam skala yang besar (Big Data). kita juga dapat mengakses node lain dengan sintaks :
-```
-cqlsh <ip-node> 9042
-```
-contohnya sepeti ini. cassandradb1 memiliki ip 192.168.33.11
-![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/tugas%204%20Cassandra%20single-node%20and%20multi-node/multi-node/ss/conn.PNG)
+sangat mudah dalam proses isntalasi cassandra multi-node dikarenakan cassandra telah didukung oleh arsitektur multi-node secara default berbeda dengan MySQL cluster yang terbilang susah. Cassandra juga bisa menjadi salah satu solusi tepat yang digunakan untuk menyimpan data dalam skala yang besar (Big Data). 
 
 ### Referensi
+
 https://www.digitalocean.com/community/tutorials/how-to-run-a-multi-node-cluster-database-with-cassandra-on-ubuntu-14-04
+
+http://tutorialwindow.com/how-to-import-data-from-excel-or-csv-files-to-cassandra-database
+
+https://www.kaggle.com/datasets?sortBy=hottest&group=public&page=1&pageSize=20&size=all&filetype=csv&license=all
