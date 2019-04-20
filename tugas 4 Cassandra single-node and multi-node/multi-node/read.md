@@ -1,3 +1,6 @@
+# Penjelasan Cassandra dan Dataset
+## Cassandra
+Cassandra atau lengkap APACHE CASSANDRA adalah salah satu produk open source untuk menajemen database yang didistribusikan oleh Apache yang sangat scalable (dapat diukur) dan dirancang untuk mengelola data terstruktur yang berkapasitas sangat besar (Big Data) yang tersebar di banyak server. Cassandra merupakan salah satu implementasi dari NoSQL (Not Only SQL) seperti mongoDB. NoSQL merupakan konsep penyimpanan database dinamis yang tidak terikat pada relasi-relasi tabel yang kaku seperti RDBMS. Selain lebih scalable, NoSQL juga memiliki performa pengaksesan yang lebih cepat.  Cassandra secara otomatis mereplikasi Data ke node yang mendukung replikasi di beberapa pusat data. Dengan arsitektur desentralisasi seperti ini risiko kegagalan penyimpanan data dapat meminimalkan secara default.
 # Implementasi Cassandra dengan Multi-Node
 Pada kasus ini saya menggunakan dua node dengan ip 192.168.33.11 dan 192.168.33.12. untuk membuat multi-node kita perlu install cassandra disetiap node. Instalasi Cassandranya sama dengan langkah-langkah yang digunakan pada pembuatan single-node bisa dilihat [disini](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/tugas%204%20Cassandra%20single-node%20and%20multi-node/single-node/read.md)
 ##### node 1 yang telah kita install Cassandra
@@ -134,7 +137,7 @@ lalu cari lagi data dengan no_id = 1111 ```select * from pokemondb.pokemon where
 
 
 ### Kesimpulan 
-sangat mudah dalam proses isntalasi cassandra multi-node dikarenakan cassandra telah didukung oleh arsitektur multi-node secara default berbeda dengan MySQL cluster yang terbilang susah. kita juga dapat mengakses node lain dengan sintaks :
+sangat mudah dalam proses isntalasi cassandra multi-node dikarenakan cassandra telah didukung oleh arsitektur multi-node secara default berbeda dengan MySQL cluster yang terbilang susah. Cassandra juga bisa menjadi salah satu solusi tepat yang digunakan untuk menyimpan data dalam skala yang besar (Big Data). kita juga dapat mengakses node lain dengan sintaks :
 ```
 cqlsh <ip-node> 9042
 ```
