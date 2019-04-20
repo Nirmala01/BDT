@@ -121,7 +121,7 @@ update pokemondb.pokemon set type_1 = 'Dragon' where no_id=1111;
 ```
 lalu ```select * from pokemondb.pokemon where no_id=1111;``` maka awalnya type_1 = Water berubah menjadi Dragon seperti gambar ini
 
-![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/tugas%204%20Cassandra%20single-node%20and%20multi-node/multi-node/ss/masukcqlsh.PNG)
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/tugas%204%20Cassandra%20single-node%20and%20multi-node/multi-node/ss/updatedancek.PNG)
 
 ##### 4. Delete data 
 saya akan menghapus data yang telah kita buat tadi dengan no_id = 1111 dengan sintaks seperti ini
