@@ -70,7 +70,7 @@ tworkTopologyStrategy', 'dc1' : 2 };
 ```
 Ganti ```pokemon``` atau keyspace sesuai dengan database yang kalian inginkan. replikasi yang kita gunakan adalah NetworkTopologyStaregy dengan replication factor 2.
 
-![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/tugas%204%20Cassandra%20single-node%20and%20multi-node/multi-node/ss/keyspace.PNG)
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/tugas%204%20Cassandra%20single-node%20and%20multi-node/multi-node/ss/keyspace2.PNG)
 
 ##### 3. Buatlah Table yang isinya sama dengan dataset yang mau kita import. sintaknya sebagai barikut;
 ```
