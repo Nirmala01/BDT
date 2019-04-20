@@ -114,7 +114,7 @@ lakukan sintaks berikut dan jalan lupa datasetnya pindahkan dalam folder yang sa
 COPY pokemondb.pokemon (no_id, Name, Type_1, Type_2, Total, HP, Attack, Defence, Sp_Atk, Sp_Def, Speed
 , Generation, Legendary) from '/vagrant/Pokemon.csv' WITH DELIMITER=',' AND HEADER=TRUE;
 ```
-hampir sama dengan cara membuat table, seperti ini [namadb].[nama_table]([kolom]) from [dataset.csv] with [value_yangditambahkan].
+hampir sama dengan cara membuat table, seperti ini``` [namadb].[nama_table]([kolom]) from [dataset.csv] with [value_yangditambahkan]```.
 
 ![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/tugas%204%20Cassandra%20single-node%20and%20multi-node/multi-node/ss/importdb.PNG)
 
