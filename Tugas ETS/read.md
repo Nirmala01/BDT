@@ -35,6 +35,7 @@ vagrant ssh dbcluster4
 ```
 ## install apache dan php
 ```
+sudo apt-get update
 sudo apt-get install apache2
 sudo apt-get install php -y
 sudo apt-get install php-mysql
@@ -42,45 +43,64 @@ sudo apt-get install -y php-gd php-imap php-ldap php-odbc php-pear php-xml php-x
 ```
 
 ## instalasi wordpress
-**buat direktori baru didalam direktori  /var/www/html/**
+**Download package wordpress**
 ```
-mkdir wordpress
-```
-**masuk ke dalam direktori baru dan install wordpress**
-```
+cd /tmp
 wget -c http://wordpress.org/latest.tar.gz
+```
+**setelah itu ekstrak package wordpress**
+```
 tar -xzvf latest.tar.gz
 ```
+**Menghapus file index.html pada direktori /var/www/html**
+```
+sudo rm /var/www/html/*
+```
+**Memindahkan isi package wordpress ke folder html
+```
+sudo mv wordpress/* /var/www/html
+```
+**Memberikan akses pada folder /var/www/html**
+```
+sudo chown -R www-data:www-data /var/www/html
+sudo chmod -R 755 /var/www/html
+sudo service apache2 restart
+```
 
-**ubah database ENGINE menjadi NDB**
-
-**copy schema.php ke file vagrant untuk memudahkan dalam mengedit ```ENGIEN=NDB```.**
+**ubah database ENGINE menjadi NDBCluster**
+**copy schema.php ke file vagrant untuk memudahkan dalam mengedit ```ENGIEN=ndbcluster```.**
 ```
 cp /var/www/html/wordpress/wp-admin/includes/schema.php /vagrant
 ```
-**setelah itu buka schema.php yang sudah dicopykan ke file vagrant dan tambahkan ```ENGINE=NDB``` disetiap tabelnya.**
+**setelah itu buka schema.php yang sudah dicopykan ke file vagrant dan tambahkan ```ENGINE=ndbcluster``` disetiap tabelnya.**
 
-![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/engine%3Dndb.PNG)
+![ssets]()
 
 **copy kembali schema.php ke dalam direktori var/www/html/wordpress/wp-admin/includes/**
-
-**editlah wp-config-sample.php isi sesuai dengan database dan user yang telah kita buat**
 ```
-sudo nano wp-config-sample.php
+sudo cp /vagrant/schema.php /var/www/html/wp-admin/includes/
+```
+**masuk ke direktori html**
+```
+cd /var/www/html
+```
+**Copikan isi wp-config-sample.php ke wp-config.php**
+```
+sudo cp wp-config-sample.php wp-config.php
+```
+**buka file wp-config.php dan edit seperti gambar dibawah**
+```
+sudo nano wp-config.php
 ```
 ![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/configphp.PNG)
 
-**rename file file wp-config-sample.php menjadi wp-config.php**
-```
-mv wp-config-sample.php wp-config.php
-```
-## bukalah wordpress 192.168.33.14/wordpress/wordpress pada browser**
+## bukalah wordpress 192.168.33.14 pada browser
 
 **maka akan muncul gambar seperti ini:**
 
 ![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/Screenshot%20(49).png)
 
-**ikuti langkah instalasi wordpress jika berhasil maka muncil seperti gambar ini**
+**ikuti langkah instalasi wordpress jika berhasil maka muncul seperti gambar ini**
 
 ![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/Screenshot%20(50).png)
 
@@ -109,18 +129,78 @@ show
 ```
 ![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/statusndbsblmdimatikan.PNG)
 
-**matikan salah satu node (yang dimatikan cludterdb2)**
+**matikan salah satu ndbd (yang dimatikan cludterdb2)**
 ```
-sudo systemctl stop mysql
+sudo systemctl stop ndbd
+sudo pkill -f ndbd
 ```
+[ssets]
 
-**node 2 telah dimatikan**
-(screenshoot)
+jadi ketika salah satu ndbd ataupun service node dimatikan, wordpress masih bisa diakses. jika semua node dimatikan maka akan muncul gambar seperti gambar dibawah karena tidak ada data yang dapat diakses.
+[ssets]
 
-**matikan kedua node**
-(screenshot)
 
 # Jmeter
+jMeter atau Apache JMeter adalah aplikasi open source berbasis Java yang dapat dipergunakan untuk performance test.
+
+## Instal JMeter
+Silahkan download terlebih dahulu jmeter [disini]
+**Menjalankan jmeter**
+- ekstrak hasil download jmeter 
+- masuk ke folder bin
+- kliklah ```ApacheJMeter.jar```
+
+## Test Plan Jmeter
+**Menambahkan user visitor**
+```
+klik kanan test plan
+Add > Thread (Users) > Thread Group
+```
+isilah seperti gambar dibawah:
+[ssets]
+
+– Number of threads (users) : isi berapa user/visitor yang akan mengakses web.
+
+– Ramp-Up period (in seconds) : isi berapa waktu delay antara user satu dengan yang lainnya dalam mengakses web.
+
+– Loop Count : waktu eksekusi, bertahap atau berulang.
+**Menambahkan web server/IP Address yang akan di tes**
+```
+klik kanan Thread Group
+Add > Config Element > HTTP Request Defaults
+```
+dan isilah sesuai dengan server ip yang akan kalian tes
+[ssets]
+
+**tambakan Http Request jika yang akan kita tes tidak hanya halaman utama**
+```
+Klik kanan Threads Group
+Add > Sampler > HTTP Request
+```
+[ssets]
+**Menampilkan proses dan hasil tes secara grafis dan bentuk tabel**
+```
+Klik kanan Test Plan
+Add > Listener > Graph Result
+```
+[ssets]
+```
+Klik kanan Test Plan
+Add > Listener > View Results in Table
+```
+[ssets]
+
+```
+Klik kanan Test Plan
+Add > Listener > Summary Report
+```
+**Jalankan Jmeter**
+klik run atau Ctrl + R
+
+## referensi 
+
+
+
 
 
 
