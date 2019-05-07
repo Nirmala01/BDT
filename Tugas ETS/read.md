@@ -29,7 +29,7 @@ mysql -u admin -p -h 127.0.0.1 -P 6032 --prompt='ProxySQLAdmin> '
 ![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/izinuserpadaproxy.PNG)
 
 # instalasi apache2, php dan wordpress
-**masuk ke cluserdb4(proxysql) :**
+**masuk ke cluserdb4(proxysql)**
 ```
 vagrant ssh dbcluster4
 ```
@@ -56,7 +56,7 @@ tar -xzvf latest.tar.gz
 ```
 sudo rm /var/www/html/*
 ```
-**Memindahkan isi package wordpress ke folder html
+**Memindahkan isi package wordpress ke folder html**
 ```
 sudo mv wordpress/* /var/www/html
 ```
@@ -74,7 +74,7 @@ cp /var/www/html/wordpress/wp-admin/includes/schema.php /vagrant
 ```
 **setelah itu buka schema.php yang sudah dicopykan ke file vagrant dan tambahkan ```ENGINE=ndbcluster``` disetiap tabelnya.**
 
-![ssets]()
+![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/ndbcluster.PNG)
 
 **copy kembali schema.php ke dalam direktori var/www/html/wordpress/wp-admin/includes/**
 ```
@@ -98,11 +98,11 @@ sudo nano wp-config.php
 
 **maka akan muncul gambar seperti ini:**
 
-![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/Screenshot%20(49).png)
+![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/Screenshot%20(67).png)
 
 **ikuti langkah instalasi wordpress jika berhasil maka muncul seperti gambar ini**
 
-![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/Screenshot%20(50).png)
+![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/Screenshot%20(49).png)
 
 **tamilan awal wordpress**
 
@@ -134,10 +134,10 @@ show
 sudo systemctl stop ndbd
 sudo pkill -f ndbd
 ```
-[ssets]
+![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/matikan%20ndbd.PNG)
 
 jadi ketika salah satu ndbd ataupun service node dimatikan, wordpress masih bisa diakses. jika semua node dimatikan maka akan muncul gambar seperti gambar dibawah karena tidak ada data yang dapat diakses.
-[ssets]
+![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/Screenshot%20(67).png)
 
 
 # Jmeter
@@ -157,7 +157,7 @@ klik kanan test plan
 Add > Thread (Users) > Thread Group
 ```
 isilah seperti gambar dibawah:
-[ssets]
+![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/thread.PNG)
 
 – Number of threads (users) : isi berapa user/visitor yang akan mengakses web.
 
@@ -170,32 +170,38 @@ klik kanan Thread Group
 Add > Config Element > HTTP Request Defaults
 ```
 dan isilah sesuai dengan server ip yang akan kalian tes
-[ssets]
+![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/http1.PNG)
 
 **tambakan Http Request jika yang akan kita tes tidak hanya halaman utama**
 ```
 Klik kanan Threads Group
 Add > Sampler > HTTP Request
 ```
-[ssets]
+![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/http2.PNG)
+
 **Menampilkan proses dan hasil tes secara grafis dan bentuk tabel**
 ```
 Klik kanan Test Plan
 Add > Listener > Graph Result
 ```
-[ssets]
+
 ```
 Klik kanan Test Plan
 Add > Listener > View Results in Table
 ```
-[ssets]
 
 ```
 Klik kanan Test Plan
 Add > Listener > Summary Report
 ```
+![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/hasilhasil.PNG)
+
 **Jalankan Jmeter**
 klik run atau Ctrl + R
+hasilnya akan seperti ini:
+
+![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/tablehasil.PNG)
+
 
 ## referensi 
 
