@@ -165,6 +165,7 @@ isilah seperti gambar dibawah:
 – Ramp-Up period (in seconds) : isi berapa waktu delay antara user satu dengan yang lainnya dalam mengakses web.
 
 – Loop Count : waktu eksekusi, bertahap atau berulang.
+
 **Menambahkan web server/IP Address yang akan di tes**
 ```
 klik kanan Thread Group
