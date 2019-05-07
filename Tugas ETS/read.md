@@ -121,7 +121,7 @@ use tugasETS;
 ```
 ![ssets](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/ssets/showtables.PNG)
 
-## Test database wordpress pada cLuster 2 DAN 3
+## Test database wordpress pada cLuster node
 **cek status ndb pada salah satu node**
 ```
 ndb_mgm
@@ -144,7 +144,7 @@ jadi ketika salah satu ndbd ataupun service node dimatikan, wordpress masih bisa
 jMeter atau Apache JMeter adalah aplikasi open source berbasis Java yang dapat dipergunakan untuk performance test.
 
 ## Instal JMeter
-Silahkan download terlebih dahulu jmeter [disini]
+Silahkan download terlebih dahulu jmeter [disini](https://jmeter.apache.org/download_jmeter.cgi)
 **Menjalankan jmeter**
 - ekstrak hasil download jmeter 
 - masuk ke folder bin
