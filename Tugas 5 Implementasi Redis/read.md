@@ -124,6 +124,7 @@ slave2
 ![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/ss/cekreplislave2.PNG)
 
 masing-masing node telah terreplikasi dengan baik 
+## CRUD
 
 ## Testing
 - Pada kasus ini saya akan mematikan master redis dengan sintaks:
@@ -141,7 +142,7 @@ redis-cli -p 6379 DEBUG sleep 30
 pada kasus ini slave2 menjadi master dan redis tetap berjalan setelah master dimatikan.
 
 ## Referensi
-
+https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-redis-on-ubuntu-16-04
 
 
 
