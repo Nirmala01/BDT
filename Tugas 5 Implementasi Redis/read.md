@@ -1,7 +1,7 @@
-# Implementasi Redis
+# Implementasi Redis Cluster
 ## Pengertian Redis
 ## Arsitektur
-Dibawah ini merupakan pembagian Arsitektur dan IP Redis yang kita gunakan:
+Dibawah ini merupakan pembagian Arsitektur dan IP Redis-cluster yang kita gunakan:
 
 No | HostName |    IP    | Keterangan  |
 ---|----------|----------|-------------|
