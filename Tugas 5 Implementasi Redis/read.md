@@ -1,6 +1,13 @@
 # Implementasi Redis
 ## Pengertian Redis
 ## Arsitektur
+Dibawah ini merupakan pembagian Arsitektur dan IP Redis yang kita gunakan:
+
+No | HostName |    IP    | Keterangan  |
+---|----------|----------|-------------|
+1  |master    |192.168.33.10 |Master|
+2 |slaveredis1|192.168.33.11|Slave 1|
+3 |slaveredis2|192.168.33.12|Slave 2|
 
 ## Instalasi
 - Install package redis yang dibutuhkan pada masing-masing node dengan sintak seperti berikut:
@@ -126,6 +133,7 @@ redis-cli -p 6379 DEBUG sleep 30
 ![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/ss/masterdimatikan.PNG)
 
 - jika master berhasil dimatikan, maka salah satu slave akan menjadi master.
+
 ![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/ss/inforeplislave1setlahmastermati.PNG)
 
 ![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/ss/inforeplislave2setelahmasterdimatikan.PNG)
