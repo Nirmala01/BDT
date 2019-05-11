@@ -9,3 +9,4 @@ Nirmala
 3. [Tugas 3 Implemetasi MongoDB](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas3_Implementasi_MongoDB/read.md) 
 4. [Tugas ETS ](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20ETS/read.md)
 5. [Tugas 4 Implementasi Cassandra dengan single-node dan multi-node](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/tugas%204%20Cassandra%20single-node%20and%20multi-node/read.md)
+6. [Tugas 5 Implementasi Redis](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/read.md)
