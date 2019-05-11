@@ -29,7 +29,8 @@ sudo ufw allow from 192.168.33.11 #Slave1
 sudo ufw allow from 192.168.33.10 #Slave2
 ```
 - Setelah melakukan instalasi maka akan terdapat file ```redis.conf``` dan ```sentinel.conf```. Lakukanlah konfigurasi pada file tersebut pada masing-masing node
-[ss]
+
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/ss/ls.PNG)
 
 - Untuk memudahkan mengedit copy lah terlebih dahulu ke ```/vagrant``` agar kita dapat mengedit diluar cmd. dengan sintak seperti berikut
 ```
@@ -76,15 +77,19 @@ src/redis-server sentinel.conf --sentinel &
 ps -ef | grep redis
 ```
 maka akan muncul gambar seperti berikut:
-[ss]
-[ss]
-[ss]
+
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/ss/mastercek.PNG)
+
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/ss/slave1cek.PNG)
+
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/ss/slave2cek.PNG)
 
 - Selanjutnya lakukan ping ke masing-masing node dengan sintak seperti berikut:
 ```
 redis-chi -h [ip address] #masukkan ip address masing-masing node
 ```
-[ss]
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/ss/pingnode.PNG)
+
 redis telah berhasil jalan tanpa adanya error
 
 - Mengecek log dari master dengan sintaks seperti berikut:
@@ -92,20 +97,24 @@ redis telah berhasil jalan tanpa adanya error
 cat redis.conf
 ```
 - Maka akan muncul gambar seperti berikut:
-[ss]
+
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/ss/cekredislogMaster1.PNG)
 
 - Mengecek info replikasi dari masing-masing node dengan sintaks:
 ```
 redis-cli
 ```
 Master
-[ss]
+
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/ss/inforeplimaster.PNG)
 
 Slave1
-[ss]
+
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/ss/inforeplislave1.PNG)
 
 slave2
-[ss]
+
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/ss/cekreplislave2.PNG)
 
 masing-masing node telah terreplikasi dengan baik 
 
@@ -114,10 +123,12 @@ masing-masing node telah terreplikasi dengan baik
 ```
 redis-cli -p 6379 DEBUG sleep 30
 ```
-[ss]
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/ss/masterdimatikan.PNG)
 
 - jika master berhasil dimatikan, maka salah satu slave akan menjadi master.
-[ss]
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/ss/inforeplislave1setlahmastermati.PNG)
+
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/ss/inforeplislave2setelahmasterdimatikan.PNG)
 
 pada kasus ini slave2 menjadi master dan redis tetap berjalan setelah master dimatikan.
 
