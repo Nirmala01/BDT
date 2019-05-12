@@ -1,5 +1,7 @@
 # Implementasi Redis Cluster
 ## Pengertian Redis
+Redis adalah open source, BSD berlisensi, advanced key-value store. Hal ini sering disebut sebagai struktur data server, karena redis memiliki struktur key dan value dengan berbagai macam tipe data. Seperti Strings, Lists, Sets, Hashes, Sorted Sets dan Bitmaps. Tutorial Redis memiliki kelebihan dapat diakses dengan Cepat, karena dataset nya tersimpan pada memory. Selain cepat, kelebihan lain yang dimiliki oleh redis adalah persistence , artinya redis memiliki Opsi untuk menjaga data tidak akan hilang. Redis memiliki dua mekanisme untuk membuat data nya persistence dengan menggunakan Append Only File (AOF) dan Snapshot (RDB).
+
 ## Arsitektur
 Dibawah ini merupakan pembagian Arsitektur dan IP Redis-cluster yang kita gunakan:
 
@@ -124,7 +126,6 @@ slave2
 ![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/ss/cekreplislave2.PNG)
 
 masing-masing node telah terreplikasi dengan baik 
-## CRUD
 
 ## Testing
 - Pada kasus ini saya akan mematikan master redis dengan sintaks:
