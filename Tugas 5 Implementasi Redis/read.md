@@ -95,7 +95,7 @@ maka akan muncul gambar seperti berikut:
 
 - Selanjutnya lakukan ping ke masing-masing node dengan sintak seperti berikut:
 ```
-redis-chi -h [ip address] #masukkan ip address masing-masing node
+redis-cli -h [ip address] ping #masukkan ip address masing-masing node
 ```
 ![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%205%20Implementasi%20Redis/ss/pingnode.PNG)
 
