@@ -35,7 +35,7 @@ sudo ufw allow 6379 #Port Redis
 sudo ufw allow 26379 #Sentinel
 sudo ufw allow from 192.168.33.10 #Master
 sudo ufw allow from 192.168.33.11 #Slave1
-sudo ufw allow from 192.168.33.10 #Slave2
+sudo ufw allow from 192.168.33.12 #Slave2
 ```
 - Setelah melakukan instalasi maka akan terdapat file ```redis.conf``` dan ```sentinel.conf```. Lakukanlah konfigurasi pada file tersebut pada masing-masing node
 
