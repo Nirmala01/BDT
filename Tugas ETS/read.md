@@ -68,9 +68,9 @@ sudo service apache2 restart
 ```
 
 **ubah database ENGINE menjadi NDBCluster**
-**copy schema.php ke file vagrant untuk memudahkan dalam mengedit ```ENGIEN=ndbcluster```.**
+**copy schema.php ke file vagrant untuk memudahkan dalam mengedit ```ENGINE=ndbcluster```.**
 ```
-cp /var/www/html/wordpress/wp-admin/includes/schema.php /vagrant
+cp /var/www/html/wp-admin/includes/schema.php /vagrant
 ```
 **setelah itu buka schema.php yang sudah dicopykan ke file vagrant dan tambahkan ```ENGINE=ndbcluster``` disetiap tabelnya.**
 
