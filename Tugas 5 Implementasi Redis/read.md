@@ -53,7 +53,7 @@ sudo cp /home/vagrant/redis-stable/sentinel.conf /vagrant #untuk sentinel
 protected-mode no
 port 6379
 dir .
-logfile "/home/redis-stable/redig.log" #output log
+logfile "/home/vagrant/redis-stable/redig.log" #output log
 ```
 ```
 # Untuk Slave1 dan Slave2
@@ -61,7 +61,7 @@ protected-mode no
 port 6379
 dir .
 slaveof 192.168.33.10 6379
-logfile "/home/redis-stable/redig.log" #output log
+logfile "/home/vagrant/redis-stable/redis.log" #output log
 ```
 Pada file redis.conf yang slave terdapat ```slaveof 192.168.33.10 6379``` yang mana berarti slave ini dari master 192.168.33.10 (node1).
 
@@ -69,7 +69,7 @@ Pada file redis.conf yang slave terdapat ```slaveof 192.168.33.10 6379``` yang m
 ```
 protected-mode no
 port 26379
-logfile "/home/redis-stable/sentinel.log"
+logfile "/home/vagrant/redis-stable/sentinel.log"
 sentinel monitor mymaster 192.168.33.10 6379 2
 sentinel down-after-milliseconds mymaster 5000
 sentinel failover-timeout mymaster 10000
