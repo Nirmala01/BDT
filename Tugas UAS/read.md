@@ -36,9 +36,9 @@ sudo nano wp-config.php
 define( 'WP_REDIS_CLIENT', 'predis' );
 define( 'WP_REDIS_SENTINEL', 'mymaster' );
 define( 'WP_REDIS_SERVERS', [
-    'tcp://192.168.33.10:26379?database=15&alias=master',
-    'tcp://192.168.33.11:26379?database=15&alias=slave1',
-    'tcp://192.168.33.12:26379?database=15&alias=slave2',
+    'tcp://192.168.33.11:26379?database=15&alias=master',
+    'tcp://192.168.33.12:26379?database=15&alias=slave1',
+    'tcp://192.168.33.13:26379?database=15&alias=slave2',
 ] );
 
 define('WP_CACHE_KEY_SALT', 'example.com'); #WP_CACHE_KEY_SALT mengatur untuk semua key chace
