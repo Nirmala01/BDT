@@ -32,7 +32,7 @@ No | HostName |    IP    | Keterangan  |
 Plugins > Add New > Redis Object Cache > Install Now > Activate
 ```
 
-[ss]
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20UAS/ss/Screenshot%20(73).png)
 
 - Kemudian bukalah wp-config.php pada proxy atau clusterdb4 dengan sintaks berikut 
 ```
@@ -62,11 +62,11 @@ Settings > Redis > Enable Object Cache
 
 - sebelum konfigurasi wp-config.php nya 
 
-[ss]
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20UAS/ss/Screenshot%20(75).png)
 
 - sesudah konfigurasi wp-config.php nya
 
-[ss]
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20UAS/ss/Screenshot%20(76).png)
 
 jadi status redis sudah conncented dengan 3 server yang telah kita konfigurasi pada wp-config.php sebelumnya
 
@@ -77,7 +77,9 @@ redis-cli monitor
 
 - lalu cobalah membuat post baru pada wordpress
 
-[ss]
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20UAS/ss/Screenshot%20(77).png)
+
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20UAS/ss/Screenshot%20(78).png)
 
 
 ### Referensi
