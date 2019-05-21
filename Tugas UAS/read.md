@@ -79,6 +79,8 @@ redis-cli monitor
 
 ![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20UAS/ss/Screenshot%20(77).png)
 
+- coba buka post yang sudah ada atau yang telah kita buat
+
 ![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20UAS/ss/Screenshot%20(78).png)
 
 
