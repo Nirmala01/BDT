@@ -68,5 +68,16 @@ Settings > Redis > Enable Object Cache
 
 [ss]
 
+jadi status redis sudah conncented dengan 3 server yang telah kita konfigurasi pada wp-config.php sebelumnya
+
+- Monitoring dilakukan pada redis master dan slave 1 dan 2 dengan sintaks berikut:
+```
+redis-cli monitor
+```
+
+- lalu cobalah membuat post baru pada wordpress
+
+[ss]
+
 
 
