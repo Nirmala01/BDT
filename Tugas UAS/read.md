@@ -52,6 +52,13 @@ define('WP_CACHE', true);  #WP_CACHE membuat cache persistent dengan plugin redi
 Settings > Redis > Enable Object Cache
 ```
 
+- sebelum konfigurasi wp-config.php nya 
+
+[ss]
+
+- sesudah konfigurasi wp-config.php nya
+
+[ss]
 
 
 
