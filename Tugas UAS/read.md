@@ -2,6 +2,14 @@
 # Wordpress. RDBMS: MySQL Cluster, NoSQL: Redis cluster (untuk sistem cache)
 
 ## Arsitektur
+#### Dibawah ini merupakan pembagian Arsitektur IP mysql-cLuster dan IP redis-cluster yang kita gunakan:
+
+No | HostName |    IP    | Keterangan  |
+---|----------|----------|-------------|
+1  |clusterdb1|192.168.33.11|ndb-Manager dan master redis|
+2 |clusterdb2|192.168.33.12|Node 1 dan API 1 dan slave1 redis|
+3 |clusterdb3|192.168.33.13|Node 2 dan API 2 dan slave2 redis|
+4 |clusterdb4|192.168.33.14|Load Balance(ProxySQL)|
 
 ## Implementasi 
 #### Buatlah implementasi MySQL Cluster 
