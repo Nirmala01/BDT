@@ -34,6 +34,13 @@ Plugins > Add New > Redis Object Cache > Install Now > Activate
 
 ![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20UAS/ss/Screenshot%20(73).png)
 
+- Cek Koneksi Redis
+```
+Settings > Redis > Enable Object Cache
+```
+
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20UAS/ss/Screenshot%20(75).png)
+
 - Kemudian bukalah wp-config.php pada proxy atau clusterdb4 dengan sintaks berikut 
 ```
 sudo nano wp-config.php
@@ -55,25 +62,21 @@ define('WP_CACHE', true);  #WP_CACHE membuat cache persistent dengan plugin redi
 
 ## Monitoring Redis Cache
 
-#### mengecek koneksi redis 
+#### Mengecek koneksi redis
 ```
 Settings > Redis > Enable Object Cache
 ```
 
-- sebelum konfigurasi wp-config.php nya 
-
-![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20UAS/ss/Screenshot%20(75).png)
-
-- sesudah konfigurasi wp-config.php nya
+- sesudah konfigurasi wp-config.php. jadi status redis sudah conncented dengan 3 server yang telah kita konfigurasi sebelumnya akan tampil seperti gambar dibawah ini
 
 ![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20UAS/ss/Screenshot%20(76).png)
-
-jadi status redis sudah conncented dengan 3 server yang telah kita konfigurasi pada wp-config.php sebelumnya
 
 - Monitoring dilakukan pada redis master dan slave 1 dan 2 dengan sintaks berikut:
 ```
 redis-cli monitor
 ```
+
+#### CRUD pada wordpress
 
 - lalu cobalah membuat post baru pada wordpress
 
@@ -83,6 +86,13 @@ redis-cli monitor
 
 ![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20UAS/ss/Screenshot%20(78).png)
 
+- lakukan updata data post yang telah kita buat
+
+![ss]()
+
+- Setelah itu coba delete post yang sudah ada
+
+![ss]()
 
 ### Referensi
 https://www.digitalocean.com/community/tutorials/how-to-configure-redis-caching-to-speed-up-wordpress-on-ubuntu-14-04 
