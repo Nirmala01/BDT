@@ -86,7 +86,7 @@ redis-cli monitor
 
 ![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20UAS/ss/Screenshot%20(78).png)
 
-- lakukan updata data post yang telah kita buat
+- lakukan update data post yang telah kita buat
 
 ![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20UAS/ss/Screenshot%20(80).png)
 
