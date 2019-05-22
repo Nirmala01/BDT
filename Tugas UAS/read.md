@@ -88,11 +88,11 @@ redis-cli monitor
 
 - lakukan updata data post yang telah kita buat
 
-![ss]()
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20UAS/ss/Screenshot%20(80).png)
 
 - Setelah itu coba delete post yang sudah ada
 
-![ss]()
+![ss](https://github.com/Nirmala01/Basis-Data-Terdistribusi-BDT-/blob/master/Tugas%20UAS/ss/Screenshot%20(79).png)
 
 ### Referensi
 https://www.digitalocean.com/community/tutorials/how-to-configure-redis-caching-to-speed-up-wordpress-on-ubuntu-14-04 
